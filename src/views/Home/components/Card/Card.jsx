@@ -1,13 +1,13 @@
-import { View, Text } from "react-native";
+import { Text, Pressable } from "react-native";
 
 import { styles } from "./Card.Styles";
 
-const Card = ({ data }) => {
+const Card = ({ data, navigation }) => {
   return (
-    <View style={styles.card}>
+    <Pressable style={styles.card} onPress={() => {navigation.navigate("Drinks")}}>
       <Text style={styles.img}>{data.img}</Text>
-      <Text style={styles.title}>{data.title} 2</Text>
-    </View>
+      <Text style={styles.title}>{data.title}</Text>
+    </Pressable>
   );
 };
 

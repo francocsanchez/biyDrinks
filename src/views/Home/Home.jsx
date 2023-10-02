@@ -4,10 +4,9 @@ import { styles } from "./Home.Styles";
 
 import { Card } from "./components";
 
-import { Entypo } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Entypo, MaterialIcons } from "@expo/vector-icons";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const dataCard = {
     sinAlcohol: {
       title: "sin alcohol",
@@ -20,8 +19,8 @@ const Home = () => {
   };
   return (
     <View style={styles.container}>
-      <Card data={dataCard.sinAlcohol} />
-      <Card data={dataCard.conAlcohol} />
+      <Card data={dataCard.sinAlcohol} navigation={navigation} />
+      <Card data={dataCard.conAlcohol} navigation={navigation} />
     </View>
   );
 };
