@@ -1,15 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  drinks: null,
+  drink: {},
+  drinksType: [],
 };
 
 export const drinkSlice = createSlice({
   name: "drink",
   initialState,
-  reducers: {},
+  reducers: {
+    setDrinksForTipe: (state, action) => {
+      state.drinksType = action.payload;
+    },
+  },
 });
 
-export const { setTipeDrinkSelected } = drinkSlice.actions;
+export const { setDrinksForTipe } = drinkSlice.actions;
 
 export default drinkSlice.reducer;

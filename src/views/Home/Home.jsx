@@ -11,10 +11,12 @@ const Home = ({ navigation }) => {
     sinAlcohol: {
       title: "sin alcohol",
       img: <MaterialIcons name="no-drinks" size={100} color="black" />,
+      tipe: "Non_Alcoholic",
     },
     conAlcohol: {
       title: "con alcohol",
       img: <Entypo name="drink" size={100} color="black" />,
+      tipe: "Alcoholic",
     },
   };
   return (
