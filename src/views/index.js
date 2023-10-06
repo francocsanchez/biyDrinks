@@ -1,4 +1,5 @@
 import Home from "./Home/Home.jsx";
-import Drink from "./Drinks/Drinks.jsx";
+import Drinks from "./Drinks/Drinks.jsx";
+import Drink from './Drink/Dink.jsx'
 
-export { Home, Drink };
+export { Home, Drinks, Drink };

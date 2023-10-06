@@ -8,7 +8,7 @@ import { styles } from "./Drinks.Styles";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const Drinks = () => {
+const Drinks = ({navigation}) => {
   const drinksType = useSelector((state) => state.drink.drinksType);
 
   const [drinks, setDrinks] = useState([]);
@@ -35,7 +35,7 @@ const Drinks = () => {
         keyExtractor={(drink) => drink.idDrink.toString()}
         contentContainerStyle={styles.container}
         numColumns={2}
-        renderItem={({ item }) => <DrinkCard drink={item} />}
+        renderItem={({ item }) => <DrinkCard drink={item} navigation={navigation} />}
       />
     </View>
   );
