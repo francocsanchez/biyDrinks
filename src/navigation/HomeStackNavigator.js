@@ -1,21 +1,27 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
 
-import { Home, Drink, Drinks } from "../views";
+import { Home, Drink, Drinks, ListFilter } from "../views";
 
 const Stack = createStackNavigator();
 
 const HomeStackNavigator = () => {
 
   return (
-    <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={Home}
           options={{
             headerTitleAlign: "center",
-            headerTitle: "TIPO DE BEBIDA",
+            headerTitle: "BUSCAR BEBIDA",
+          }}
+        />
+         <Stack.Screen
+          name="ListFilter"
+          component={ListFilter}
+          options={{
+            headerTitleAlign: "center",
+            headerTitle: "FILTRO POR ....",
           }}
         />
         <Stack.Screen
@@ -35,7 +41,6 @@ const HomeStackNavigator = () => {
           }}
         />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 };
 
