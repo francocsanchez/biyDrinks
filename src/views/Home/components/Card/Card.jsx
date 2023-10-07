@@ -1,8 +1,8 @@
-import { Text, Pressable } from "react-native";
+import { Text, Pressable, View } from "react-native";
+import { useDispatch } from "react-redux";
 
 import { styles } from "./Card.Styles";
 
-import { useDispatch } from "react-redux";
 import { setDrinksForTipe } from "../../../../features/drink/drinkSlice";
 
 const Card = ({ data, navigation }) => {
@@ -12,12 +12,13 @@ const Card = ({ data, navigation }) => {
     <Pressable
       style={styles.card}
       onPress={() => {
-        dispatch(setDrinksForTipe(data.tipe));
-        navigation.navigate("Drinks");
+        dispatch(setDrinksForTipe(data));
+        navigation.navigate("ListFilter");
       }}
     >
-      <Text style={styles.img}>{data.img}</Text>
-      <Text style={styles.title}>{data.title}</Text>
+      <View style={styles.rowCard}>
+        <Text style={styles.title}>{data.title}</Text>
+      </View>
     </Pressable>
   );
 };

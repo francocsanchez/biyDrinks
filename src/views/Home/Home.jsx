@@ -1,28 +1,39 @@
 import { View } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 import { styles } from "./Home.Styles";
 
 import { Card } from "./components";
 
-import { Entypo, MaterialIcons } from "@expo/vector-icons";
-
 const Home = ({ navigation }) => {
   const dataCard = {
-    sinAlcohol: {
-      title: "sin alcohol",
-      img: <MaterialIcons name="no-drinks" size={100} color="black" />,
-      tipe: "Non_Alcoholic",
+    filterByGlases: {
+      title: "Por Copa",
+      url: "list.php?g=",
+      input: "strGlass",
     },
-    conAlcohol: {
-      title: "con alcohol",
-      img: <Entypo name="drink" size={100} color="black" />,
-      tipe: "Alcoholic",
+    filterForTypeCocktail: {
+      title: "Por Bebida",
+      url: "list.php?c=",
+      input: "strCategory",
+    },
+    filterForIngredients: {
+      title: "Por Ingrediente",
+      url: "list.php?i=",
+      input: "strIngredient1",
+    },
+    filterByAlcoholic: {
+      title: "Contenido de Alcohol",
+      url: "list.php?a=",
+      input: "strAlcoholic",
     },
   };
   return (
     <View style={styles.container}>
-      <Card data={dataCard.sinAlcohol} navigation={navigation} />
-      <Card data={dataCard.conAlcohol} navigation={navigation} />
+      <Card data={dataCard.filterByGlases} navigation={navigation} />
+      <Card data={dataCard.filterForTypeCocktail} navigation={navigation} />
+      <Card data={dataCard.filterForIngredients} navigation={navigation} />
+      <Card data={dataCard.filterByAlcoholic} navigation={navigation} />
     </View>
   );
 };

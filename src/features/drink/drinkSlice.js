@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   drinkSelectedId: {},
-  drinksType: [],
+  drinksList: [],
+  filterType: {},
+  filterItem: {},
 };
 
 export const drinkSlice = createSlice({
@@ -10,14 +12,18 @@ export const drinkSlice = createSlice({
   initialState,
   reducers: {
     setDrinksForTipe: (state, action) => {
-      state.drinksType = action.payload;
+      state.filterType = action.payload;
     },
     setDrinkSelected: (state, action) => {
       state.drinkSelectedId = action.payload;
     },
+    setDriksListItem: (state, action) => {
+      state.filterItem = action.payload;
+    },
   },
 });
 
-export const { setDrinksForTipe, setDrinkSelected } = drinkSlice.actions;
+export const { setDrinksForTipe, setDrinkSelected, setDriksListItem } =
+  drinkSlice.actions;
 
 export default drinkSlice.reducer;

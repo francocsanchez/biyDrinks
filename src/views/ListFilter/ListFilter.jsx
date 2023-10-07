@@ -1,18 +1,13 @@
 import axios from "axios";
+import { View, Text, FlatList } from "react-native";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { View, FlatList ,Text } from "react-native";
 
-import { DrinkCard } from "./components";
+import { styles } from "./ListFilter.Styles";
+import { List } from "./components";
 
-import { styles } from "./Drinks.Styles";
-
-
-const Drinks = ({navigation}) => {
+const ListFilter = ({navigation}) => {
   const drinksType = useSelector((state) => state.drink.filterType);
-  const filterItem = useSelector((state) => state.drink.filterItem);
-  const uri = `${drinksType.url}${filterItem}`
-  console.log(uri)
 
   const [drinks, setDrinks] = useState([]);
 
@@ -20,9 +15,8 @@ const Drinks = ({navigation}) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://www.thecocktaildb.com/api/json/v1/1/${uri}`
+          `https://www.thecocktaildb.com/api/json/v1/1/${drinksType.url}list`
         );
-        console.log(response.data.drinks)
         setDrinks(response.data.drinks);
       } catch (error) {
         console.log(error);
@@ -33,17 +27,15 @@ const Drinks = ({navigation}) => {
   }, []);
 
   return (
-    <View>
-      <Text>Aca imprimo la bebida</Text>
-      {/* <FlatList
+    <View style={styles.container}>
+      <FlatList
         data={drinks}
         keyExtractor={(drink, index) => index.toString()}
         contentContainerStyle={styles.container}
-        numColumns={2}
-        renderItem={({ item }) => <DrinkCard drink={item} navigation={navigation} />}
-      /> */}
+        renderItem={({ item }) => <List data={item[drinksType.input]}  navigation={navigation}/>}
+      />
     </View>
   );
 };
 
-export default Drinks;
+export default ListFilter;
