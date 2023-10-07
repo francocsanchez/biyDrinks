@@ -2,22 +2,27 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   drinkSelectedId: {},
-  drinksType: [],
+  filterType: {},
+  filterItem: {},
 };
 
 export const drinkSlice = createSlice({
   name: "drink",
   initialState,
   reducers: {
-    setDrinksForTipe: (state, action) => {
-      state.drinksType = action.payload;
-    },
     setDrinkSelected: (state, action) => {
       state.drinkSelectedId = action.payload;
+    },
+    setDrinksForTipe: (state, action) => {
+      state.filterType = action.payload;
+    },
+    setDrinksListItem: (state, action) => {
+      state.filterItem = action.payload;
     },
   },
 });
 
-export const { setDrinksForTipe, setDrinkSelected } = drinkSlice.actions;
+export const { setDrinksForTipe, setDrinkSelected, setDrinksListItem } =
+  drinkSlice.actions;
 
 export default drinkSlice.reducer;
