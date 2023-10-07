@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
 
+import { colors } from "../../../../global/Colors";
+
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#ffffff",
+    backgroundColor: colors.color2,
     borderRadius: 8,
-    padding: 16,
+    padding: 25,
     marginBottom: 70,
     shadowColor: "#000000",
     shadowOffset: {
@@ -13,9 +15,9 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    elevation: 5,
+    elevation: 20,
     width: "80%",
-    alignSelf: "center", 
+    alignSelf: "center",
   },
   rowCard: {
     flexDirection: "row",
@@ -23,10 +25,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   title: {
-    fontSize: 15,
+    fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
     textTransform: "uppercase",
+    color: "#fff",
   },
   img: {
     textAlign: "center",

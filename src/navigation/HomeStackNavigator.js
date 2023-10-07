@@ -3,13 +3,29 @@ import { useSelector } from "react-redux";
 
 import { Home, Drink, Drinks, ListFilter } from "../views";
 
+import { colors } from "../global/Colors";
+
 const Stack = createStackNavigator();
 
 const HomeStackNavigator = () => {
   const { filterType, filterItem } = useSelector((state) => state.drink);
 
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colors.color2,
+        },
+        headerTitleAlign: "center",
+        headerTitleStyle: {
+          fontSize: 24,
+          fontWeight: "bold",
+          textTransform: "uppercase",
+        },
+        headerTintColor: "#fff",
+      }}
+    >
       <Stack.Screen
         name="Home"
         component={Home}
