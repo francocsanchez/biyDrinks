@@ -1,10 +1,12 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import React from "react";
-import { StyleSheet } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Feather from "@expo/vector-icons/Feather";
 
-import SearchStackNavigator from "./SearchStackNavigator";
 import HomeStackNavigator from "./HomeStackNavigator";
+import SearchStackNavigator from "./SearchStackNavigator";
+
+import { colors } from "../global/Colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,11 +16,33 @@ const TabNavigator = () => {
       <Tab.Navigator
         initialRouteName="HomeTab"
         screenOptions={{
+          tabBarStyle: styles.tabBar,
           headerShown: false,
+          tabBarShowLabel: false,
         }}
       >
-        <Tab.Screen name="SearchTab" component={SearchStackNavigator} />
-        <Tab.Screen name="HomeTab" component={HomeStackNavigator} />
+        <Tab.Screen
+          name="HomeTab"
+          component={HomeStackNavigator}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <View style={focused ? styles.iconContainer : null}>
+                <Feather name="search" size={24} color="#fff" />
+              </View>
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="SearchTab"
+          component={SearchStackNavigator}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <View style={focused ? styles.iconContainer : null}>
+                <Feather name="shopping-cart" size={24} color="#fff" />
+              </View>
+            ),
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
@@ -26,4 +50,19 @@ const TabNavigator = () => {
 
 export default TabNavigator;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  tabBar: {
+    backgroundColor: colors.color2,
+    position: "absolute",
+    borderTopLeftRadius: 100,
+    borderTopRightRadius: 100,
+    height: 60,
+  },
+  iconContainer: {
+    backgroundColor: colors.color1,
+    borderRadius: 25,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
