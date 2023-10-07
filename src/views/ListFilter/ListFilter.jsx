@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { styles } from "./ListFilter.Styles";
 import { List } from "./components";
 
-const ListFilter = ({navigation}) => {
+const ListFilter = ({ navigation }) => {
   const drinksType = useSelector((state) => state.drink.filterType);
 
   const [drinks, setDrinks] = useState([]);
@@ -15,7 +15,7 @@ const ListFilter = ({navigation}) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://www.thecocktaildb.com/api/json/v1/1/${drinksType.url}list`
+          `https://www.thecocktaildb.com/api/json/v1/1/list.php?${drinksType.urlPath}list`
         );
         setDrinks(response.data.drinks);
       } catch (error) {
@@ -32,7 +32,13 @@ const ListFilter = ({navigation}) => {
         data={drinks}
         keyExtractor={(drink, index) => index.toString()}
         contentContainerStyle={styles.container}
-        renderItem={({ item }) => <List data={item[drinksType.input]}  navigation={navigation}/>}
+        renderItem={({ item }) => (
+          <List
+            data={item[drinksType.input]}
+            navigation={navigation}
+            item={item}
+          />
+        )}
       />
     </View>
   );

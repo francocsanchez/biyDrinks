@@ -9,22 +9,22 @@ const Home = ({ navigation }) => {
   const dataCard = {
     filterByGlases: {
       title: "Por Copa",
-      url: "list.php?g=",
+      urlPath: "g=",
       input: "strGlass",
     },
     filterForTypeCocktail: {
       title: "Por Bebida",
-      url: "list.php?c=",
+      urlPath: "c=",
       input: "strCategory",
     },
     filterForIngredients: {
       title: "Por Ingrediente",
-      url: "list.php?i=",
+      urlPath: "i=",
       input: "strIngredient1",
     },
     filterByAlcoholic: {
       title: "Contenido de Alcohol",
-      url: "list.php?a=",
+      urlPath: "a=",
       input: "strAlcoholic",
     },
   };
