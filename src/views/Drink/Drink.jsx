@@ -1,21 +1,17 @@
 import { View, Text, Image, ScrollView, Pressable } from "react-native";
 import { useEffect, useState } from "react";
-import { AntDesign } from "@expo/vector-icons";
 
 import axios from "axios";
 
 import { styles } from "./Drink.Styles";
+import { IconFav } from "./components";
 
-import { useDispatch, useSelector } from "react-redux";
-import { setListDrinkFav } from "../../features/drink/drinkSlice";
+import { useSelector } from "react-redux";
 
 const Drink = () => {
-  const dispatch = useDispatch();
-
   const { drinkSelectedId } = useSelector((state) => state.drink);
 
   const [drink, setDrink] = useState({});
-  const [fav, setFav] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,10 +29,6 @@ const Drink = () => {
     fetchData();
   }, []);
 
-  const handleClickAddFav = (drinkSelectedId) => {
-    dispatch(setListDrinkFav(drinkSelectedId));
-  };
-
   const ingredientsList = [];
   const ingredients = [];
   for (let i = 1; i <= 15; i++) {
@@ -53,18 +45,7 @@ const Drink = () => {
       <View style={[styles.section, styles.alingCenterImg]}>
         <View style={{ position: "relative" }}>
           <Image source={{ uri: drink.strDrinkThumb }} style={styles.image} />
-          <Pressable
-            style={styles.favoriteIcon}
-            onPress={() => {
-              handleClickAddFav(drinkSelectedId);
-            }}
-          >
-            {!fav ? (
-              <AntDesign name="hearto" size={24} color="#F04A4A" />
-            ) : (
-              <AntDesign name="heart" size={24} color="#F04A4A" />
-            )}
-          </Pressable>
+          <IconFav id={drinkSelectedId} />
         </View>
       </View>
       <View style={styles.section}>

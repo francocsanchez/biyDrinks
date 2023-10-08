@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Feather from "@expo/vector-icons/Feather";
 
 import HomeStackNavigator from "./HomeStackNavigator";
-import SearchStackNavigator from "./SearchStackNavigator";
+import ShopStackNavigator from "./ShopStackNavigator";
 
 import { colors } from "../global/Colors";
 
@@ -34,7 +34,7 @@ const TabNavigator = () => {
         />
         <Tab.Screen
           name="SearchTab"
-          component={SearchStackNavigator}
+          component={ShopStackNavigator}
           options={{
             tabBarIcon: ({ focused }) => (
               <View style={focused ? styles.iconContainer : null}>
