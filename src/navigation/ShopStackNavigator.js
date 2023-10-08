@@ -1,15 +1,15 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { Search } from "../views";
+import { Shop } from "../views";
 
 const Stack = createStackNavigator();
 
-const SearchStackNavigator = () => {
+const ShopStackNavigator = () => {
   return (
     <Stack.Navigator initialRouteName="Search">
       <Stack.Screen
         name="Search"
-        component={Search}
+        component={Shop}
         options={{
           headerTitleAlign: "center",
           headerTitle: "BUSCADOR DE BEBIDAS",
@@ -19,4 +19,4 @@ const SearchStackNavigator = () => {
   );
 };
 
-export default SearchStackNavigator;
+export default ShopStackNavigator;
