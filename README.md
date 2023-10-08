@@ -47,5 +47,3 @@ Este proyecto se encuentra bajo la Licencia MIT. Consulta el archivo [LICENSE](L
 ## Contacto
 
 Puedes encontrarme en [LinkedIn](https://www.linkedin.com/in/francocsanchez/).
-
-<a href="https://www.linkedin.com/in/francocsanchez/" target="_blank"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" alt="LinkedIn" width="30"/> </a>
