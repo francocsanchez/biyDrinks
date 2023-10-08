@@ -8,11 +8,14 @@ buyDrinks es un proyecto de código abierto. Se trata de una aplicación móvil 
 Sigue los pasos de instalación para obtener el proyecto en tu máquina local y comenzar a usarlo.
 
 1. Clona el repositorio en tu máquina local.
-git clone https://github.com/tu-usuario/tu-repositorio.git
-
+```bash
+git clone https://github.com/francocsanchez/buyDrinks
+```
 
 2. Instala las dependencias.
+```bash
 npm install
+```
 
 
 ## Uso
@@ -30,13 +33,18 @@ Si deseas contribuir al desarrollo de este proyecto, sigue los pasos de contribu
 
 1. Haz un fork del proyecto.
 2. Crea una nueva rama con tus cambios.
+```bash
 git checkout -b feature/nueva-funcionalidad
+```
 
 3. Realiza tus cambios y haz commits.
+```bash
 git commit -m "Agrega nueva funcionalidad"
-
+```
 4. Haz un push a tu rama.
+```bash
 git push origin feature/nueva-funcionalidad
+```
 
 5. Abre un Pull Request en GitHub.
 
