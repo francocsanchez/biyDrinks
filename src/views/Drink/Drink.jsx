@@ -7,24 +7,21 @@ import axios from "axios";
 import { styles } from "./Drink.Styles";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setListBuyIngredientes } from "../../features/drink/drinkSlice";
+import { setListDrinkFav } from "../../features/drink/drinkSlice";
 
 const Drink = () => {
   const dispatch = useDispatch();
-  const drinkId = useSelector((state) => state.drink.drinkSelectedId);
+
+  const { drinkSelectedId } = useSelector((state) => state.drink);
 
   const [drink, setDrink] = useState({});
   const [fav, setFav] = useState(false);
-
-  const handleClickFav = () => {
-    setFav(!fav);
-  };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`
+          `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkSelectedId}`
         );
 
         setDrink(response.data.drinks[0]);
@@ -36,12 +33,18 @@ const Drink = () => {
     fetchData();
   }, []);
 
+  const handleClickAddFav = (drinkSelectedId) => {
+    dispatch(setListDrinkFav(drinkSelectedId));
+  };
+
+  const ingredientsList = [];
   const ingredients = [];
   for (let i = 1; i <= 15; i++) {
     const ingredient = drink[`strIngredient${i}`];
     const measure = drink[`strMeasure${i}`];
     if (ingredient && measure) {
-      ingredients.push(`${ingredient} - ${measure}`);
+      ingredients.push(ingredient);
+      ingredientsList.push(`${ingredient} - ${measure}`);
     }
   }
 
@@ -52,7 +55,9 @@ const Drink = () => {
           <Image source={{ uri: drink.strDrinkThumb }} style={styles.image} />
           <Pressable
             style={styles.favoriteIcon}
-            onPress={() => handleClickFav()}
+            onPress={() => {
+              handleClickAddFav(drinkSelectedId);
+            }}
           >
             {!fav ? (
               <AntDesign name="hearto" size={24} color="#F04A4A" />
@@ -77,7 +82,7 @@ const Drink = () => {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Ingredientes:</Text>
         <View>
-          {ingredients.map((ingredient, index) => (
+          {ingredientsList.map((ingredient, index) => (
             <Text style={styles.ingredientText} key={index}>
               {ingredient}
             </Text>

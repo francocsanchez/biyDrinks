@@ -4,7 +4,7 @@ const initialState = {
   drinkSelectedId: {},
   filterType: {},
   filterItem: {},
-  listBuyIngredients: [],
+  listDrinkFav: [],
 };
 
 export const drinkSlice = createSlice({
@@ -20,8 +20,16 @@ export const drinkSlice = createSlice({
     setDrinksListItem: (state, action) => {
       state.filterItem = action.payload;
     },
-    setListBuyIngredientes: (state, action) => {
-      state.listBuyIngredients.push(action.payload);
+    setListDrinkFav: (state, action) => {
+      const index = state.listDrinkFav.findIndex(
+        (item) => item === action.payload
+      );
+
+      if (index !== -1) {
+        state.listDrinkFav.splice(index, 1);
+      } else {
+        state.listDrinkFav.push(action.payload);
+      }
     },
   },
 });
@@ -30,7 +38,7 @@ export const {
   setDrinksForTipe,
   setDrinkSelected,
   setDrinksListItem,
-  setListBuyIngredientes,
+  setListDrinkFav,
 } = drinkSlice.actions;
 
 export default drinkSlice.reducer;
