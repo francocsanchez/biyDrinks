@@ -29,18 +29,17 @@ const Drinks = ({ navigation }) => {
   }, []);
 
   return (
-    <View>
-      {
-        <FlatList
-          data={drinks}
-          keyExtractor={(drink, index) => index.toString()}
-          contentContainerStyle={styles.container}
-          numColumns={2}
-          renderItem={({ item }) => (
-            <DrinkCard drink={item} navigation={navigation} />
-          )}
-        />
-      }
+    <View style={styles.container}>
+      <FlatList
+        style={styles.cardList}
+        data={drinks}
+        keyExtractor={(drink, index) => index.toString()}
+        contentContainerStyle={styles.container}
+        numColumns={2}
+        renderItem={({ item }) => (
+          <DrinkCard drink={item} navigation={navigation} />
+        )}
+      />
     </View>
   );
 };

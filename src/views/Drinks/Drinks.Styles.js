@@ -2,9 +2,12 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
+    backgroundColor:'#fff',
+    alignItems:'center'
   },
+  cardList:{
+    marginBottom:60
+  }
 });
 
 export { styles };

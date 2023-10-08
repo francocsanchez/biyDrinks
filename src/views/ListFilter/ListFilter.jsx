@@ -1,5 +1,5 @@
 import axios from "axios";
-import { View, Text, FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -17,7 +17,13 @@ const ListFilter = ({ navigation }) => {
         const response = await axios.get(
           `https://www.thecocktaildb.com/api/json/v1/1/list.php?${drinksType.urlPath}list`
         );
-        setDrinks(response.data.drinks);
+
+        let drinksList = response.data.drinks;
+        let drinksListAbc = drinksList.sort((a, b) =>
+          a[drinksType.input].localeCompare(b[drinksType.input])
+        );
+
+        setDrinks(drinksListAbc);
       } catch (error) {
         console.log(error);
       }
@@ -28,18 +34,19 @@ const ListFilter = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={drinks}
-        keyExtractor={(drink, index) => index.toString()}
-        contentContainerStyle={styles.container}
-        renderItem={({ item }) => (
-          <List
-            data={item[drinksType.input]}
-            navigation={navigation}
-            item={item}
-          />
-        )}
-      />
+    <FlatList
+    style={styles.listCard}
+      data={drinks}
+      keyExtractor={(drink, index) => index.toString()}
+      contentContainerStyle={styles.container}
+      renderItem={({ item }) => (
+        <List
+          data={item[drinksType.input]}
+          navigation={navigation}
+          item={item}
+        />
+      )}
+    />
     </View>
   );
 };

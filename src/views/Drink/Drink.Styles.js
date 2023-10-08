@@ -3,6 +3,8 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    backgroundColor: "#fff",
+    marginBottom: 65,
   },
   image: {
     width: 300,
@@ -14,7 +16,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   section: {
-    marginBottom: 16, // Espacio entre secciones
+    marginBottom: 16,
   },
   sectionTitle: {
     fontSize: 18,
@@ -23,6 +25,16 @@ const styles = StyleSheet.create({
   },
   ingredientText: {
     marginBottom: 4,
+  },
+  favoriteIcon: {
+    position: "absolute",
+    bottom: 15,
+    right: 15,
+    backgroundColor: "#fff",
+    borderRadius: 50,
+    padding: 10,
+    borderWidth: 0.9,
+    borderColor: "#000000",
   },
 });
 
