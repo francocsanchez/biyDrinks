@@ -4,6 +4,7 @@ const initialState = {
   drinkSelectedId: {},
   filterType: {},
   filterItem: {},
+  listBuyIngredients: [],
 };
 
 export const drinkSlice = createSlice({
@@ -19,10 +20,17 @@ export const drinkSlice = createSlice({
     setDrinksListItem: (state, action) => {
       state.filterItem = action.payload;
     },
+    setListBuyIngredientes: (state, action) => {
+      state.listBuyIngredients.push(action.payload);
+    },
   },
 });
 
-export const { setDrinksForTipe, setDrinkSelected, setDrinksListItem } =
-  drinkSlice.actions;
+export const {
+  setDrinksForTipe,
+  setDrinkSelected,
+  setDrinksListItem,
+  setListBuyIngredientes,
+} = drinkSlice.actions;
 
 export default drinkSlice.reducer;
