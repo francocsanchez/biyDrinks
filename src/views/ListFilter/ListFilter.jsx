@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 
@@ -33,8 +33,9 @@ const ListFilter = ({ navigation }) => {
   }, []);
 
   return (
+    <View style={styles.container}>
     <FlatList
-      style={styles.container}
+    style={styles.listCard}
       data={drinks}
       keyExtractor={(drink, index) => index.toString()}
       contentContainerStyle={styles.container}
@@ -46,6 +47,7 @@ const ListFilter = ({ navigation }) => {
         />
       )}
     />
+    </View>
   );
 };
 

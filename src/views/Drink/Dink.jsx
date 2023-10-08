@@ -1,5 +1,6 @@
-import { View, Text, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView, Pressable } from "react-native";
 import { useEffect, useState } from "react";
+import { AntDesign } from "@expo/vector-icons";
 
 import axios from "axios";
 
@@ -30,7 +31,12 @@ const Dink = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={[styles.section, styles.alingCenterImg]}>
-        <Image source={{ uri: drink.strDrinkThumb }} style={styles.image} />
+        <View style={{ position: "relative" }}>
+          <Image source={{ uri: drink.strDrinkThumb }} style={styles.image} />
+          <Pressable style={styles.favoriteIcon}>
+            <AntDesign name="hearto" size={24} color="#000" />
+          </Pressable>
+        </View>
       </View>
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Nombre:</Text>
