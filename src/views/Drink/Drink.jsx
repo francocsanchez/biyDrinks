@@ -9,7 +9,7 @@ import { styles } from "./Drink.Styles";
 import { useDispatch, useSelector } from "react-redux";
 import { setListBuyIngredientes } from "../../features/drink/drinkSlice";
 
-const Dink = () => {
+const Drink = () => {
   const dispatch = useDispatch();
   const drinkId = useSelector((state) => state.drink.drinkSelectedId);
 
@@ -92,4 +92,4 @@ const Dink = () => {
   );
 };
 
-export default Dink;
+export default Drink;
