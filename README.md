@@ -15,12 +15,13 @@ git clone https://github.com/francocsanchez/buyDrinks
 2. Instala las dependencias.
 ```bash
 npm install
+npm run android
 ```
 
 
 ## Uso
 
-1. Abre la aplicación en tu dispositivo móvil.
+1. Abre la camara de tu dispositivo móvil y escanea el QR generado.
 2. Explora las diversas categorías de bebidas disponibles.
 3. Utiliza la función de búsqueda para encontrar tragos específicos según ingredientes, tipos de copas, etc.
 4. Marca tus tragos favoritos para agregarlos a tu lista de favoritos.
@@ -47,10 +48,6 @@ git push origin feature/nueva-funcionalidad
 ```
 
 5. Abre un Pull Request en GitHub.
-
-## Licencia
-
-Este proyecto se encuentra bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
 
 ## Contacto
 
