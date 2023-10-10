@@ -40,7 +40,10 @@ const Shop = () => {
     <ScrollView style={styles.container}>
       <View style={styles.ingredientView}>
         {ingre?.map((ingredient, index) => (
-          <View key={index} style={styles.ingredientContainer}>
+          <View
+            key={index}
+            style={[styles.ingredientContainer, styles.borderBottom]}
+          >
             <Image
               source={{
                 uri: `https://www.thecocktaildb.com/images/ingredients/${ingredient}-Small.png`,
