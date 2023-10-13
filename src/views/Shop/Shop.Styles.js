@@ -25,6 +25,12 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     fontSize: 15,
   },
+  borderBottom: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    paddingBottom:10
+  }
+  
 });
 
 export { styles };
