@@ -1,11 +1,10 @@
 import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Feather, FontAwesome5 } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 import HomeStackNavigator from "./HomeStackNavigator";
 import ShopStackNavigator from "./ShopStackNavigator";
-import StoreStackNavigator from "./StoreStackNavigator";
 
 import { colors } from "../global/Colors";
 
@@ -29,17 +28,6 @@ const TabNavigator = () => {
             tabBarIcon: ({ focused }) => (
               <View style={focused ? styles.iconContainer : null}>
                 <Feather name="search" size={24} color="#fff" />
-              </View>
-            ),
-          }}
-        />
-        <Tab.Screen
-          name="StoreTab"
-          component={StoreStackNavigator}
-          options={{
-            tabBarIcon: ({ focused }) => (
-              <View style={focused ? styles.iconContainer : null}>
-                <FontAwesome5 name="store" size={24} color="#fff" />
               </View>
             ),
           }}
